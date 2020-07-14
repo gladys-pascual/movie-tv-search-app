@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.scss";
+import Search from "./components/Search";
+import Header from "./components/Header";
+import Results from "./components/Results";
+import { Switch, Route } from "react-router-dom";
+import history from "./history";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  handleSubmit = (searchText) => {
+    history.push(`/search?query=${searchText}`);
+  };
+
+  render() {
+    return (
+      <>
+        <Header />
+        <Search handleSubmit={this.handleSubmit} />
+        <Switch>
+          <Route path="/search" component={Results} />
+        </Switch>
+      </>
+    );
+  }
 }
 
 export default App;
