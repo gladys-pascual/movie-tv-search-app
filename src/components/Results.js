@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ShowCard from "./ShowCard";
 import NoShows from "./NoShows";
+import Loading from "./Loading";
+import { Link } from "react-router-dom";
 import "../";
 
 class Results extends Component {
@@ -8,6 +10,7 @@ class Results extends Component {
     super(props);
     this.state = {
       shows: [],
+      loading: true,
     };
   }
 
@@ -19,7 +22,10 @@ class Results extends Component {
     )
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({ shows: responseData.results });
+        this.setState({
+          shows: responseData.results,
+          loading: false,
+        });
       })
       .catch((err) => console.log("Error fetching and parsing data", err));
   };
@@ -33,10 +39,26 @@ class Results extends Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return <Loading />;
+    }
+
     const results = this.state.shows.filter((show) => !!show.poster_path);
     let shows =
       results.length > 0 ? (
-        results.map((show) => <ShowCard {...show} key={show.id} />)
+        results.map((show) => {
+          return (
+            <Link
+              to={
+                show.media_type === "tv"
+                  ? `/tv/${show.id}`
+                  : `/movie/${show.id}`
+              }
+            >
+              <ShowCard {...show} key={show.id} />{" "}
+            </Link>
+          );
+        })
       ) : (
         <NoShows />
       );

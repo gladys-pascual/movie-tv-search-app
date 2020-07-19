@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Results from "./components/Results";
 import { Switch, Route } from "react-router-dom";
 import history from "./history";
+import Movie from "./components/Movie";
+import Tv from "./components/Tv";
 
 class App extends Component {
   handleSubmit = (searchText) => {
@@ -18,6 +20,8 @@ class App extends Component {
         <Search handleSubmit={this.handleSubmit} />
         <Switch>
           <Route path="/search" component={Results} />
+          <Route path="/movie/:id" component={Movie} />
+          <Route path="/tv/:id" component={Tv} />
         </Switch>
       </>
     );
