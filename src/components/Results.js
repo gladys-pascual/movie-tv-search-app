@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ShowCard from "./ShowCard";
+import Search from "./Search";
 import NoShows from "./NoShows";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
@@ -64,12 +65,15 @@ class Results extends Component {
       );
 
     return (
-      <section className="results">
-        <p className={results.length > 0 ? "your-search" : "no-results"}>
-          Your search results...
-        </p>
-        <div className="show-list">{shows}</div>
-      </section>
+      <>
+        <Search />
+        <section className="results">
+          <p className={results.length > 0 ? "your-search" : "no-results"}>
+            Your search results...
+          </p>
+          <div className="show-list">{shows}</div>
+        </section>
+      </>
     );
   }
 }

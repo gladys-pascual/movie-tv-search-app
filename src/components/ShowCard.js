@@ -57,8 +57,9 @@ const ShowCard = ({
             alt={media_type === "tv" ? `tv` : `movie`}
           />
         </div>
-        <p className="rating">{vote_average}</p>
+
         <Rater total={5} rating={vote_average / 2} interactive={false} />
+        <p className="rating">{vote_average}</p>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Loading from "./Loading";
+import Show from "./Show";
 
 class Movie extends Component {
   constructor(props) {
@@ -32,10 +33,33 @@ class Movie extends Component {
     if (this.state.loading) {
       return <Loading />;
     }
+
     console.log(this.state.movie);
+
+    const {
+      title,
+      genres,
+      poster_path,
+      overview,
+      release_date,
+      runtime,
+      vote_average,
+      tagline,
+    } = this.state.movie;
+
     return (
       <>
-        <p>Movie component</p>
+        <Show
+          title={title}
+          genres={genres}
+          poster={poster_path}
+          overview={overview}
+          date={release_date}
+          runtime={runtime}
+          vote={vote_average}
+          tagline={tagline}
+          movie={true}
+        />
       </>
     );
   }
