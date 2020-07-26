@@ -29,7 +29,6 @@ const Tv = () => {
     return <Loading />;
   }
 
-  console.log(tv);
 
   const {
     name,
