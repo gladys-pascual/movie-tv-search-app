@@ -9,7 +9,7 @@ header {
   justify-content: space-between;
   align-items: center;
   .logo {
-    width: 250px;
+    width: 150px;
     img {
       width: 100%;
     }
@@ -23,10 +23,34 @@ header {
       list-style-type: none;
       padding: 20px;
       font-size: 24px;
+      display: flex;
+      align-items: center;
       a {
         text-decoration: none;
         color: grey;
       }
+      a:hover {
+        color: black;
+      }
+      .selected {
+        color: white;
+        background-color: #7bcbc4;
+        padding: 12px;
+        border-radius: 8px;
+      }
+    }
+    .log-in {
+      border: none;
+      background: none;
+      font-size: 24px;
+      color: grey;
+      cursor: pointer;
+    }
+    .username {
+      border: none;
+      background: none;
+      font-size: 24px;
+      color: #7bcbc4;
     }
   }
 }
@@ -103,9 +127,26 @@ header {
   }
 }
 
+.favorites {
+  .favorites-heading {
+    color: grey;
+    text-align: center;
+    font-size: 24px;
+  }
+  .results {
+    .favorite-movie-heading,
+    .favorite-tv-heading {
+      color: grey;
+      padding-left: 10vw;
+      font-size: 20px;
+      font-style: italic;
+    }
+  }
+}
+
 .show-card {
   margin: 10px;
-  border: 1px solid grey;
+  // border: 1px solid grey;
   border-radius: 12px;
   display: flex;
   flex-wrap: wrap;
@@ -171,12 +212,10 @@ header {
   .show {
     display: flex;
     width: 70vw;
-    // border: 1px solid black;
     @media screen and (max-width: 700px) {
       flex-direction: column;
       align-items: center;
     }
-
     .poster-img {
       width: 300px;
       img {
@@ -191,6 +230,10 @@ header {
       .title-and-year {
         display: flex;
         flex-wrap: wrap;
+        @media screen and (max-width: 700px) {
+          flex-direction: column;
+          align-items: center;
+        }
         .title {
           padding-left: 8px;
           margin: 4px 10px 4px 0px;
@@ -205,14 +248,24 @@ header {
         display: flex;
         flex-wrap: wrap;
         margin-top: 12px;
+        @media screen and (max-width: 700px) {
+          flex-direction: column;
+          align-items: center;
+        }
         .bullet-point {
           font-size: 8px;
           padding-top: 4px;
+          @media screen and (max-width: 700px) {
+            display: none;
+          }
         }
         p {
           margin: 0px;
           padding-right: 8px;
           padding-left: 8px;
+          @media screen and (max-width: 700px) {
+            padding-bottom: 8px;
+          }
         }
         .no-season {
           display: none;
@@ -223,6 +276,9 @@ header {
         display: flex;
         margin-top: 16px;
         padding-left: 8px;
+        @media screen and (max-width: 700px) {
+          justify-content: center;
+        }
         .rating {
           margin: 3px;
           padding-left: 4px;

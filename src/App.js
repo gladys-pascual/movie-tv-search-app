@@ -1,26 +1,90 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.scss";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Results from "./components/Results";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import Movie from "./components/Movie";
 import Tv from "./components/Tv";
+import Favorites from "./components/Favorites";
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        <Header />
-        <Switch>
-          <Route exact path="/" render={() => <Home />} />
-          <Route path="/search" component={Results} />
-          <Route path="/movie/:id" component={Movie} />
-          <Route path="/tv/:id" component={Tv} />
-        </Switch>
-      </>
+const App = () => {
+  const location = useLocation();
+
+  const [userDetails, setUserDetails] = useState({});
+
+  const getRequestToken = () => {
+    fetch(
+      `https://api.themoviedb.org/3/authentication/token/new?api_key=${process.env.REACT_APP_API_KEY}`
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        window.location.href = `https://www.themoviedb.org/authenticate/${response.request_token}?redirect_to=${window.location.href}`;
+      });
+  };
+
+  const sessionId = localStorage.getItem("session_id");
+
+  useEffect(() => {
+    const requestToken = new URLSearchParams(location.search).get(
+      "request_token"
     );
-  }
-}
+
+    if (location.search && requestToken && !sessionId) {
+      fetch(
+        `https://api.themoviedb.org/3/authentication/session/new?api_key=${process.env.REACT_APP_API_KEY}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            request_token: requestToken,
+          }),
+        }
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.failure) {
+            throw new Error(response.status_message);
+          }
+          localStorage.setItem("session_id", response.session_id);
+          setUserDetails({});
+        })
+        .catch((error) =>
+          alert(`Error creating a session, please try again. ${error.message}`)
+        );
+    }
+  }, [location.search, sessionId]);
+
+  useEffect(() => {
+    if (sessionId) {
+      fetch(
+        `https://api.themoviedb.org/3/account?api_key=${process.env.REACT_APP_API_KEY}&session_id=${sessionId}`
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          setUserDetails(response);
+        })
+        .catch((error) =>
+          console.log("Error fetching and parsing data", error)
+        );
+    }
+  }, [sessionId]);
+
+  return (
+    <>
+      <Header onLogIn={getRequestToken} userDetails={userDetails} />
+      <Switch>
+        <Route exact path="/" render={() => <Home />} />
+        <Route path="/search" component={Results} />
+        <Route path="/movie/:id" component={Movie} />
+        <Route path="/tv/:id" component={Tv} />
+        <Route
+          path="/favorites"
+          render={() => <Favorites userDetails={userDetails} />}
+        />
+      </Switch>
+    </>
+  );
+};
 
 export default App;

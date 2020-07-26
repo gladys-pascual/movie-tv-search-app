@@ -17,9 +17,10 @@ class Results extends Component {
 
   handleSearch = () => {
     const urlSearchParams = new URLSearchParams(this.props.location.search);
-    const queryValue = urlSearchParams.get("query");
+    this.queryValue = urlSearchParams.get("query");
+
     fetch(
-      `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${queryValue}&include_adult=false`
+      `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${this.queryValue}&include_adult=false`
     )
       .then((response) => response.json())
       .then((responseData) => {
@@ -35,8 +36,11 @@ class Results extends Component {
     this.handleSearch();
   }
 
-  componentDidUpdate() {
-    this.handleSearch();
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.search !== this.props.location.search) {
+      this.handleSearch();
+      document.title = `${this.queryValue}`;
+    }
   }
 
   render() {
@@ -55,8 +59,9 @@ class Results extends Component {
                   ? `/tv/${show.id}`
                   : `/movie/${show.id}`
               }
+              key={`link${show.id}`}
             >
-              <ShowCard {...show} key={show.id} />{" "}
+              <ShowCard {...show} key={show.id} />
             </Link>
           );
         })

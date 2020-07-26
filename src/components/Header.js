@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ onLogIn, userDetails }) => {
   return (
     <header>
       <Link exact to="/" className="logo">
@@ -10,15 +10,25 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <NavLink exact to="/">
+            <NavLink exact to="/" activeClassName="selected">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/Movie">Movie</NavLink>
+            {userDetails.username && (
+              <NavLink to="/favorites" activeClassName="selected">
+                My Favourites
+              </NavLink>
+            )}
           </li>
           <li>
-            <NavLink to="/TV">TV</NavLink>
+            {userDetails.username ? (
+              <button className="username">{userDetails.username}</button>
+            ) : (
+              <button onClick={onLogIn} className="log-in">
+                Login
+              </button>
+            )}
           </li>
         </ul>
       </nav>

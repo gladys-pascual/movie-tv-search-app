@@ -29,12 +29,14 @@ class Movie extends Component {
     this.fetchMovie();
   }
 
+  componentDidUpdate() {
+    document.title = `${this.state.movie.title}`;
+  }
+
   render() {
     if (this.state.loading) {
       return <Loading />;
     }
-
-    console.log(this.state.movie);
 
     const {
       title,

@@ -21,6 +21,10 @@ const Tv = () => {
       .catch((err) => console.log("Error fetching and parsing data", err));
   }, [id]);
 
+  useEffect(() => {
+    document.title = `${tv.name}`;
+  }, [tv]);
+
   if (loading) {
     return <Loading />;
   }

@@ -16,7 +16,6 @@ class Search extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.searchText !== "") {
-      // this.props.handleSubmit(this.state.searchText);
       history.push(`/search?query=${this.state.searchText}`);
     }
   };
