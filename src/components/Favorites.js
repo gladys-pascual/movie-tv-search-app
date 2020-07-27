@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ShowCard from "./ShowCard";
 import { Link } from "react-router-dom";
 import NoFavorites from "./NoFavorites";
+import Loading from "./Loading";
 
 const Favorites = (userDetails) => {
   const [favoriteMovies, setFavoriteMovies] = useState({
@@ -10,6 +11,9 @@ const Favorites = (userDetails) => {
   const [favoriteTvs, setFavoriteTvs] = useState({
     results: [],
   });
+
+  const [loading, setLoading] = useState(true);
+
   const sessionId = localStorage.getItem("session_id");
 
   useEffect(() => {
@@ -20,11 +24,10 @@ const Favorites = (userDetails) => {
       .then((response) => {
         // setFavoriteMovies({ results: [] });
         setFavoriteMovies(response);
+        setLoading(false);
       })
       .catch((error) => console.log("Error fetching and parsing data", error));
   }, [userDetails.id, sessionId]);
-
-  console.log("favorite movies", favoriteMovies);
 
   const favoriteMovie = favoriteMovies.results.map((movie) => {
     return (
@@ -42,6 +45,7 @@ const Favorites = (userDetails) => {
       .then((response) => {
         // setFavoriteTvs({ results: [] });
         setFavoriteTvs(response);
+        setLoading(false);
       })
       .catch((error) => console.log("Error fetching and parsing data", error));
   }, [userDetails.id, sessionId]);
@@ -53,6 +57,10 @@ const Favorites = (userDetails) => {
       </Link>
     );
   });
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return !favoriteMovie.length && !favoriteTv.length ? (
     <NoFavorites />
