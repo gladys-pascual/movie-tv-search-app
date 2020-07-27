@@ -1,34 +1,10 @@
-import React, { useState, useEffect } from "react";
 import ShowCard from "./ShowCard";
 import { Link } from "react-router-dom";
 import NoFavorites from "./NoFavorites";
 import Loading from "./Loading";
+import React from "react";
 
-const Favorites = (userDetails) => {
-  const [favoriteMovies, setFavoriteMovies] = useState({
-    results: [],
-  });
-  const [favoriteTvs, setFavoriteTvs] = useState({
-    results: [],
-  });
-
-  const [loading, setLoading] = useState(true);
-
-  const sessionId = localStorage.getItem("session_id");
-
-  useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/account/${userDetails.id}/favorite/movies?api_key=${process.env.REACT_APP_API_KEY}&session_id=${sessionId}&language=en-US&sort_by=created_at.asc&page=1`
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        // setFavoriteMovies({ results: [] });
-        setFavoriteMovies(response);
-        setLoading(false);
-      })
-      .catch((error) => console.log("Error fetching and parsing data", error));
-  }, [userDetails.id, sessionId]);
-
+const Favorites = ({ favoriteMovies, favoriteTvs, loading }) => {
   const favoriteMovie = favoriteMovies.results.map((movie) => {
     return (
       <Link to={`/movie/${movie.id}`}>
@@ -36,19 +12,6 @@ const Favorites = (userDetails) => {
       </Link>
     );
   });
-
-  useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/account/${userDetails.id}/favorite/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        // setFavoriteTvs({ results: [] });
-        setFavoriteTvs(response);
-        setLoading(false);
-      })
-      .catch((error) => console.log("Error fetching and parsing data", error));
-  }, [userDetails.id, sessionId]);
 
   const favoriteTv = favoriteTvs.results.map((tv) => {
     return (
