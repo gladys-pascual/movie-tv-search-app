@@ -31,7 +31,7 @@ const App = () => {
 
   const sessionId = localStorage.getItem("session_id");
 
-  // API to get session ID
+  // Getting a session ID using request token from the
   useEffect(() => {
     const requestToken = new URLSearchParams(location.search).get(
       "request_token"
@@ -62,7 +62,7 @@ const App = () => {
     }
   }, [location.search, sessionId]);
 
-  // API for favourite user details (username and user ID)
+  // User details API
   useEffect(() => {
     if (sessionId) {
       fetch(
