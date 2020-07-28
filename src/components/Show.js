@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
+import Heart from "react-animated-heart";
 
 const Show = (props) => {
   const date = new Date(props.date);
@@ -23,8 +24,7 @@ const Show = (props) => {
   ];
   let month = months[month_num];
 
-  console.log(props.genres);
-
+  const [favorite, setFavorite] = useState(false);
   return (
     <section className="show-container">
       <div className="show">
@@ -36,9 +36,17 @@ const Show = (props) => {
         </div>
 
         <div className="show-details">
-          <div className="title-and-year">
-            <h2 className="title"> {props.title} </h2>
-            <h2 className="year">({year})</h2>
+          <div className="title-year-heart">
+            <div className="title-and-year">
+              <h2 className="title"> {props.title} </h2>
+              <h2 className="year">({year})</h2>
+            </div>
+            <div className="heart">
+              <Heart
+                isClick={favorite}
+                onClick={() => setFavorite(!favorite)}
+              />
+            </div>
           </div>
 
           <div className="info">

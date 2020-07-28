@@ -31,7 +31,7 @@ const Favorites = (userDetails) => {
 
   const favoriteMovie = favoriteMovies.results.map((movie) => {
     return (
-      <Link to={`/movie/${movie.id}`}>
+      <Link to={`/movie/${movie.id}`} key={`tv-${movie.id}`}>
         <ShowCard {...movie} key={movie.id} media_type="movie" />
       </Link>
     );
@@ -50,9 +50,11 @@ const Favorites = (userDetails) => {
       .catch((error) => console.log("Error fetching and parsing data", error));
   }, [userDetails.id, sessionId]);
 
+  console.log(favoriteTvs);
+
   const favoriteTv = favoriteTvs.results.map((tv) => {
     return (
-      <Link to={`/tv/${tv.id}`}>
+      <Link to={`/tv/${tv.id}`} key={`tv-${tv.id}`}>
         <ShowCard {...tv} key={tv.id} media_type="tv" />
       </Link>
     );
