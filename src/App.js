@@ -113,7 +113,7 @@ const App = () => {
         <Route exact path="/" render={() => <Home />} />
         <Route path="/search" component={Results} />
         <Route path="/movie/:id" component={Movie} />
-        <Route path="/tv/:id" component={Tv} />
+        <Route path="/tv/:id" render={() => <Tv favoriteTvs={favoriteTvs} />} />
         <Route
           path="/favorites"
           render={() => (

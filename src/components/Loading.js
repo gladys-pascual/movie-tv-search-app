@@ -9,7 +9,7 @@ const Loading = () => {
     // </section>
 
     <div className="loading">
-      <PacmanLoader color="#7bcbc4" size="100" />
+      <PacmanLoader color="#7bcbc4" size="100px" />
     </div>
   );
 };

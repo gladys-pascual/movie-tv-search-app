@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
 import Heart from "react-animated-heart";
@@ -25,6 +25,11 @@ const Show = (props) => {
   let month = months[month_num];
 
   const [favorite, setFavorite] = useState(false);
+
+  useEffect(() => {
+    setFavorite(props.isFavorite);
+  }, [props.isFavorite]);
+
   return (
     <section className="show-container">
       <div className="show">

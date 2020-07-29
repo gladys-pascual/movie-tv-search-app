@@ -3,10 +3,9 @@ import { useParams } from "react-router-dom";
 import Loading from "./Loading";
 import Show from "./Show";
 
-const Tv = () => {
+const Tv = ({ favoriteTvs }) => {
   const [tv, setTv] = useState({});
   const [loading, setLoading] = useState(true);
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -29,6 +28,9 @@ const Tv = () => {
     return <Loading />;
   }
 
+  const isFavorite = !!favoriteTvs.results.find((favoriteTv) => {
+    return favoriteTv.id === tv.id;
+  });
 
   const {
     name,
@@ -53,6 +55,7 @@ const Tv = () => {
         vote={vote_average}
         seasons={number_of_seasons}
         movie={false}
+        isFavorite={isFavorite}
       />
     </>
   );
