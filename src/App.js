@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "./App.scss";
 import Home from "./components/Home";
 import Header from "./components/Header";
@@ -79,32 +79,62 @@ const App = () => {
   }, [sessionId]);
 
   // API for favourite movies
-  useEffect(() => {
+  const fetchFavoriteMovie = useCallback(() => {
     fetch(
       `https://api.themoviedb.org/3/account/${userDetails.id}/favorite/movies?api_key=${process.env.REACT_APP_API_KEY}&session_id=${sessionId}&language=en-US&sort_by=created_at.asc&page=1`
     )
       .then((response) => response.json())
       .then((response) => {
-        // setFavoriteMovies({ results: [] });
         setFavoriteMovies(response);
         setLoading(false);
       })
       .catch((error) => console.log("Error fetching and parsing data", error));
   }, [userDetails.id, sessionId]);
 
-  // API for favourite TV
   useEffect(() => {
+    fetchFavoriteMovie();
+  }, [fetchFavoriteMovie]);
+
+  // API for favourite TV
+  const fetchFavoriteTv = useCallback(
+    () =>
+      fetch(
+        `https://api.themoviedb.org/3/account/${userDetails.id}/favorite/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`
+      )
+        .then((response) => response.json())
+        .then((response) => {
+          setFavoriteTvs(response);
+          setLoading(false);
+        })
+        .catch((error) =>
+          console.log("Error fetching and parsing data", error)
+        ),
+    [userDetails.id, sessionId]
+  );
+
+  useEffect(() => {
+    fetchFavoriteTv();
+  }, [fetchFavoriteTv]);
+
+  // Calling the API to mark tv or movie as favourite
+  const updateFavorite = (mediaType, mediaId, favorite) => {
     fetch(
-      `https://api.themoviedb.org/3/account/${userDetails.id}/favorite/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&session_id=${sessionId}&sort_by=created_at.asc&page=1`
+      `https://api.themoviedb.org/3/account/${userDetails.id}/favorite?api_key=${process.env.REACT_APP_API_KEY}&session_id=${sessionId}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          media_type: mediaType,
+          media_id: mediaId,
+          favorite,
+        }),
+      }
     )
-      .then((response) => response.json())
-      .then((response) => {
-        // setFavoriteTvs({ results: [] });
-        setFavoriteTvs(response);
-        setLoading(false);
+      .then(() => {
+        mediaType === "tv" ? fetchFavoriteTv() : fetchFavoriteMovie();
       })
       .catch((error) => console.log("Error fetching and parsing data", error));
-  }, [userDetails.id, sessionId]);
+  };
 
   return (
     <>
@@ -112,8 +142,22 @@ const App = () => {
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route path="/search" component={Results} />
-        <Route path="/movie/:id" component={Movie} />
-        <Route path="/tv/:id" render={() => <Tv favoriteTvs={favoriteTvs} />} />
+        <Route
+          path="/movie/:id"
+          render={(routeProps) => (
+            <Movie
+              {...routeProps}
+              favoriteMovies={favoriteMovies}
+              updateFavorite={updateFavorite}
+            />
+          )}
+        />
+        <Route
+          path="/tv/:id"
+          render={() => (
+            <Tv favoriteTvs={favoriteTvs} updateFavorite={updateFavorite} />
+          )}
+        />
         <Route
           path="/favorites"
           render={() => (

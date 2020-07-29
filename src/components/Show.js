@@ -26,6 +26,11 @@ const Show = (props) => {
 
   const [favorite, setFavorite] = useState(false);
 
+  const onHeartClick = () => {
+    props.updateFavorite();
+    setFavorite(!favorite);
+  };
+
   useEffect(() => {
     setFavorite(props.isFavorite);
   }, [props.isFavorite]);
@@ -47,10 +52,7 @@ const Show = (props) => {
               <h2 className="year">({year})</h2>
             </div>
             <div className="heart">
-              <Heart
-                isClick={favorite}
-                onClick={() => setFavorite(!favorite)}
-              />
+              <Heart isClick={favorite} onClick={onHeartClick} />
             </div>
           </div>
 
