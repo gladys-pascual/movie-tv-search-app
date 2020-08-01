@@ -277,23 +277,29 @@ header {
     .show-details {
       padding-top: 16px;
       margin-left: 20px;
-      @media screen and (max-width: 780px) {
+      @media screen and (max-width: 600px) {
         margin: 0px;
+        padding: 0px;
       }
       .title-year-heart {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        @media screen and (max-width: 780px) {
+        @media screen and (max-width: 600px) {
           flex-direction: column;
           align-items: center;
+          .heart {
+            order: -1;
+          }
         }
         .title-and-year {
           display: flex;
           flex-wrap: wrap;
-          @media screen and (max-width: 780px) {
+          @media screen and (max-width: 600px) {
             flex-direction: column;
             align-items: center;
+            text-align: center;
+            padding-bottom: 16px;
           }
           .title {
             padding-left: 8px;
@@ -309,14 +315,14 @@ header {
       .info {
         display: flex;
         flex-wrap: wrap;
-        @media screen and (max-width: 780px) {
+        @media screen and (max-width: 600px) {
           flex-direction: column;
           align-items: center;
         }
         .bullet-point {
           font-size: 8px;
           padding-top: 4px;
-          @media screen and (max-width: 780px) {
+          @media screen and (max-width: 600px) {
             display: none;
           }
         }
@@ -336,7 +342,7 @@ header {
         display: flex;
         margin-top: 16px;
         padding-left: 8px;
-        @media screen and (max-width: 780px) {
+        @media screen and (max-width: 600px) {
           justify-content: center;
         }
         .rating {
@@ -359,6 +365,9 @@ header {
         width: 40vw;
         line-height: 24px;
         @media screen and (max-width: 780px) {
+          width: 60vw;
+        }
+        @media screen and (max-width: 600px) {
           width: 80vw;
         }
       }
@@ -369,6 +378,7 @@ header {
 .footer-section {
   background-color: $theme-color;
   padding: 8px 0px;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
