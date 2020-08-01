@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Loading from "./Loading";
 import Show from "./Show";
 
-const Tv = ({ favoriteTvs, updateFavorite }) => {
+const Tv = ({ favoriteTvs, updateFavorite, userDetails }) => {
   const [tv, setTv] = useState({});
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -28,9 +28,11 @@ const Tv = ({ favoriteTvs, updateFavorite }) => {
     return <Loading />;
   }
 
-  const isFavorite = !!favoriteTvs.results.find((favoriteTv) => {
-    return favoriteTv.id === tv.id;
-  });
+  const isFavorite =
+    !!userDetails.username &&
+    !!favoriteTvs.results.find((favoriteTv) => {
+      return favoriteTv.id === tv.id;
+    });
 
   const {
     name,
@@ -57,6 +59,7 @@ const Tv = ({ favoriteTvs, updateFavorite }) => {
         movie={false}
         isFavorite={isFavorite}
         updateFavorite={() => updateFavorite("tv", tv.id, !isFavorite)}
+        showFavorite={!!userDetails.username}
       />
     </>
   );

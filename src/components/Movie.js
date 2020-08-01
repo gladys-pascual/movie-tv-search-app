@@ -49,13 +49,11 @@ class Movie extends Component {
       tagline,
     } = this.state.movie;
 
-    console.log(this.props.favoriteMovies.results);
-
-    const isFavorite = !!this.props.favoriteMovies.results.find(
-      (favoriteMovie) => {
+    const isFavorite =
+      !!this.props.userDetails.username &&
+      !!this.props.favoriteMovies.results.find((favoriteMovie) => {
         return favoriteMovie.id === this.state.movie.id;
-      }
-    );
+      });
 
     return (
       <>
@@ -73,6 +71,7 @@ class Movie extends Component {
           updateFavorite={() =>
             this.props.updateFavorite("movie", this.state.movie.id, !isFavorite)
           }
+          showFavorite={!!this.props.userDetails.username}
         />
       </>
     );

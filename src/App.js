@@ -96,8 +96,10 @@ const App = () => {
   }, [userDetails.id, sessionId]);
 
   useEffect(() => {
-    fetchFavoriteMovie();
-  }, [fetchFavoriteMovie]);
+    if (userDetails.id && sessionId) {
+      fetchFavoriteMovie();
+    }
+  }, [userDetails.id, sessionId, fetchFavoriteMovie]);
 
   // API for favourite TV
   const fetchFavoriteTv = useCallback(
@@ -117,8 +119,10 @@ const App = () => {
   );
 
   useEffect(() => {
-    fetchFavoriteTv();
-  }, [fetchFavoriteTv]);
+    if (userDetails.id && sessionId) {
+      fetchFavoriteTv();
+    }
+  }, [userDetails.id, sessionId, fetchFavoriteTv]);
 
   // Calling the API to mark tv or movie as favourite
   const updateFavorite = (mediaType, mediaId, favorite) => {
@@ -177,13 +181,18 @@ const App = () => {
                 {...routeProps}
                 favoriteMovies={favoriteMovies}
                 updateFavorite={updateFavorite}
+                userDetails={userDetails}
               />
             )}
           />
           <Route
             path="/tv/:id"
             render={() => (
-              <Tv favoriteTvs={favoriteTvs} updateFavorite={updateFavorite} />
+              <Tv
+                favoriteTvs={favoriteTvs}
+                updateFavorite={updateFavorite}
+                userDetails={userDetails}
+              />
             )}
           />
           <Route

@@ -16,6 +16,7 @@ const Show = ({
   tagline,
   overview,
   updateFavorite,
+  showFavorite,
 }) => {
   const newDate = new Date(date);
   const year = newDate.getFullYear();
@@ -64,21 +65,29 @@ const Show = ({
               <h2 className="title"> {title} </h2>
               <h2 className="year">({year})</h2>
             </div>
-            <div className="heart">
-              <Heart isClick={favorite} onClick={onHeartClick} />
-            </div>
+            {showFavorite ? (
+              <div className="heart">
+                <Heart isClick={favorite} onClick={onHeartClick} />
+              </div>
+            ) : (
+              ""
+            )}
           </div>
 
           <div className="info">
             <p className="genres">
               {genres.map((genre) => genre.name).join(", ")}
             </p>
-            <span class="material-icons bullet-point">fiber_manual_record</span>
+            <span className="material-icons bullet-point">
+              fiber_manual_record
+            </span>
             <p>{runtime} min</p>
-            <span class="material-icons bullet-point">fiber_manual_record</span>
+            <span className="material-icons bullet-point">
+              fiber_manual_record
+            </span>
             <p className="air-date">{` ${day}-${month}-${year}`}</p>
             <span className={movie ? "no-season" : "tv-season"}>
-              <span class="material-icons bullet-point">
+              <span className="material-icons bullet-point">
                 fiber_manual_record
               </span>
             </span>
