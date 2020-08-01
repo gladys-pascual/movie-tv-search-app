@@ -23,7 +23,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 780px) {
     margin: 10px 10px 30px 10px;
   }
   .logo {
@@ -38,7 +38,7 @@ header {
     margin: 4px;
     font-size: 16px;
     list-style-type: none;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 780px) {
       padding: 10px;
     }
 
@@ -110,7 +110,7 @@ header {
     width: 50vw;
     font-size: 16px;
     border: none;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 780px) {
       font-size: 12px;
     }
   }
@@ -263,7 +263,7 @@ header {
   .show {
     display: flex;
     width: 70vw;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 780px) {
       flex-direction: column;
       align-items: center;
     }
@@ -277,21 +277,21 @@ header {
     .show-details {
       padding-top: 16px;
       margin-left: 20px;
-      @media screen and (max-width: 700px) {
+      @media screen and (max-width: 780px) {
         margin: 0px;
       }
       .title-year-heart {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 780px) {
           flex-direction: column;
           align-items: center;
         }
         .title-and-year {
           display: flex;
           flex-wrap: wrap;
-          @media screen and (max-width: 700px) {
+          @media screen and (max-width: 780px) {
             flex-direction: column;
             align-items: center;
           }
@@ -309,14 +309,14 @@ header {
       .info {
         display: flex;
         flex-wrap: wrap;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 780px) {
           flex-direction: column;
           align-items: center;
         }
         .bullet-point {
           font-size: 8px;
           padding-top: 4px;
-          @media screen and (max-width: 700px) {
+          @media screen and (max-width: 780px) {
             display: none;
           }
         }
@@ -324,7 +324,7 @@ header {
           margin: 0px;
           padding-right: 8px;
           padding-left: 8px;
-          @media screen and (max-width: 700px) {
+          @media screen and (max-width: 780px) {
             padding-bottom: 8px;
           }
         }
@@ -336,7 +336,7 @@ header {
         display: flex;
         margin-top: 16px;
         padding-left: 8px;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 780px) {
           justify-content: center;
         }
         .rating {
@@ -358,7 +358,7 @@ header {
         padding-left: 8px;
         width: 40vw;
         line-height: 24px;
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 780px) {
           width: 80vw;
         }
       }
@@ -382,7 +382,7 @@ header {
     align-items: center;
     text-decoration: none;
     color: $text-color-hover;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 780px) {
       padding: 0px 12px;
       width: 150px;
       text-align: center;
@@ -393,7 +393,7 @@ header {
       background-color: #0d253f;
       padding: 4px;
       border-radius: 4px;
-      @media screen and (max-width: 700px) {
+      @media screen and (max-width: 780px) {
         width: 40px;
       }
 
@@ -404,7 +404,7 @@ header {
   }
   .footer-socials {
     padding: 0px 100px;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 780px) {
       padding: 0px 12px;
     }
     li {
