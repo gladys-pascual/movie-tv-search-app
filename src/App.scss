@@ -8,6 +8,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 700px) {
+    margin: 30px 10px 50px 10px;
+  }
   .logo {
     width: 150px;
     img {
@@ -18,40 +21,56 @@ header {
     display: flex;
     padding: 20px;
     margin: 4px;
+    font-size: 16px;
+    list-style-type: none;
+    @media screen and (max-width: 700px) {
+      padding: 10px;
+    }
 
-    li {
-      list-style-type: none;
-      padding: 20px;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      a {
-        text-decoration: none;
-        color: grey;
+    a {
+      text-decoration: none;
+      color: grey;
+    }
+    .selected {
+      color: white;
+      background-color: #7bcbc4;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 200px;
+        li {
+          margin: 12px 20px;
+        }
       }
-      a:hover {
-        color: black;
-      }
-      .selected {
+
+      .dropdown-content a:hover {
         color: white;
         background-color: #7bcbc4;
-        padding: 12px;
-        border-radius: 8px;
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      .log-in,
+      .dropbtn {
+        border: none;
+        background: none;
+        color: grey;
+        cursor: pointer;
+        padding: 0px 20px;
+      }
+      .username {
+        font-weight: 600;
       }
     }
-    .log-in {
-      border: none;
-      background: none;
-      font-size: 24px;
-      color: grey;
-      cursor: pointer;
-    }
-    .username {
-      border: none;
-      background: none;
-      font-size: 24px;
-      color: #7bcbc4;
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
   }
 }
@@ -59,6 +78,7 @@ header {
 .search-form {
   display: flex;
   justify-content: center;
+
   .form-wrapper {
     border: 1px solid lightgrey;
     border-radius: 30px;
@@ -68,6 +88,9 @@ header {
     width: 50vw;
     font-size: 16px;
     border: none;
+    @media screen and (max-width: 700px) {
+      font-size: 12px;
+    }
   }
 
   button {
@@ -107,7 +130,7 @@ header {
       color: black;
     }
     a:hover {
-      animation: effect linear 0.5s;
+      animation: effect linear 1s;
     }
 
     @keyframes effect {
@@ -115,7 +138,7 @@ header {
         transform: scale(1, 1);
       }
       25% {
-        transform: scale(1.3, 0.6);
+        transform: scale(1.3, 0.8);
       }
 
       50% {
@@ -147,7 +170,6 @@ header {
 
 .show-card {
   margin: 10px;
-  // border: 1px solid grey;
   border-radius: 12px;
   display: flex;
   flex-wrap: wrap;
@@ -281,7 +303,6 @@ header {
           display: none;
         }
       }
-
       .rating-wrapper {
         display: flex;
         margin-top: 16px;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Header = ({ onLogIn, userDetails }) => {
+const Header = ({ onLogIn, userDetails, onLogOut }) => {
   return (
     <header>
       <Link exact to="/" className="logo">
@@ -14,22 +14,34 @@ const Header = ({ onLogIn, userDetails }) => {
               Home
             </NavLink>
           </li>
-          <li>
-            {userDetails.username && (
-              <NavLink to="/favorites" activeClassName="selected">
-                My Favourites
-              </NavLink>
-            )}
-          </li>
-          <li>
+
+          <div className="dropdown">
             {userDetails.username ? (
-              <button className="username">{userDetails.username}</button>
+              <button className="username dropbtn">
+                {userDetails.username}
+              </button>
             ) : (
-              <button onClick={onLogIn} className="log-in">
+              <button onClick={onLogIn} className="log-in dropbtn">
                 Login
               </button>
             )}
-          </li>
+
+            <div className="dropdown-content">
+              <li>
+                {userDetails.username && (
+                  <Link to="/favorites">My Favourites</Link>
+                )}
+              </li>
+
+              <li>
+                {userDetails.username && (
+                  <Link exact to="/" onClick={onLogOut}>
+                    Logout
+                  </Link>
+                )}
+              </li>
+            </div>
+          </div>
         </ul>
       </nav>
     </header>

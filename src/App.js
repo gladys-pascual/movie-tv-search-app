@@ -7,6 +7,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import Movie from "./components/Movie";
 import Tv from "./components/Tv";
 import Favorites from "./components/Favorites";
+import history from "./history";
 
 const App = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ const App = () => {
   });
   const [loading, setLoading] = useState(true);
 
+  // Log in
   const getRequestToken = () => {
     fetch(
       `https://api.themoviedb.org/3/authentication/token/new?api_key=${process.env.REACT_APP_API_KEY}`
@@ -55,6 +57,7 @@ const App = () => {
           }
           localStorage.setItem("session_id", response.session_id);
           setUserDetails({});
+          history.push(`/`);
         })
         .catch((error) =>
           alert(`Error creating a session, please try again. ${error.message}`)
@@ -136,9 +139,32 @@ const App = () => {
       .catch((error) => console.log("Error fetching and parsing data", error));
   };
 
+  // Log out
+  const handleLogOut = () => {
+    fetch(
+      `https://api.themoviedb.org/3/authentication/session?api_key=${process.env.REACT_APP_API_KEY}`,
+      {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          session_id: sessionId,
+        }),
+      }
+    )
+      .then(() => {
+        localStorage.removeItem("session_id");
+        setUserDetails({});
+      })
+      .catch((error) => console.log("Error fetching and parsing data", error));
+  };
+
   return (
     <>
-      <Header onLogIn={getRequestToken} userDetails={userDetails} />
+      <Header
+        onLogIn={getRequestToken}
+        userDetails={userDetails}
+        onLogOut={handleLogOut}
+      />
       <Switch>
         <Route exact path="/" render={() => <Home />} />
         <Route path="/search" component={Results} />
