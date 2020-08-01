@@ -1,6 +1,7 @@
 * {
   font-family: "Roboto", sans-serif;
   outline: none;
+  box-sizing: border-box;
 }
 
 header {
@@ -9,7 +10,7 @@ header {
   justify-content: space-between;
   align-items: center;
   @media screen and (max-width: 700px) {
-    margin: 30px 10px 50px 10px;
+    margin: 10px 10px 30px 10px;
   }
   .logo {
     width: 150px;
@@ -255,10 +256,17 @@ header {
     .show-details {
       padding-top: 16px;
       margin-left: 20px;
+      @media screen and (max-width: 700px) {
+        margin: 0px;
+      }
       .title-year-heart {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @media screen and (max-width: 700px) {
+          flex-direction: column;
+          align-items: center;
+        }
         .title-and-year {
           display: flex;
           flex-wrap: wrap;
