@@ -3,9 +3,9 @@
 ## App Features
 
 - Search movies or tv shows
-- Login
+- Login to your own account
 - Mark and view favourite movies or tv shows
-- Bookmark search results, movie and tv
+- Bookmark search results, movies and tv shows
 - Responsive design
 
 TMDb API was used to create this project.
