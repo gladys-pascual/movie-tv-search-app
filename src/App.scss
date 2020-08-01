@@ -4,6 +4,20 @@
   box-sizing: border-box;
 }
 
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+$theme-color: #7bcbc4;
+$text-color: grey;
+$text-color-hover: white;
+
 header {
   margin: 30px 50px 50px 50px;
   display: flex;
@@ -30,11 +44,11 @@ header {
 
     a {
       text-decoration: none;
-      color: grey;
+      color: $text-color;
     }
     .selected {
-      color: white;
-      background-color: #7bcbc4;
+      color: $text-color-hover;
+      background-color: $theme-color;
       padding: 12px;
       border-radius: 8px;
     }
@@ -52,8 +66,8 @@ header {
       }
 
       .dropdown-content a:hover {
-        color: white;
-        background-color: #7bcbc4;
+        color: $text-color-hover;
+        background-color: $theme-color;
         padding: 4px;
         border-radius: 4px;
       }
@@ -62,7 +76,7 @@ header {
       .dropbtn {
         border: none;
         background: none;
-        color: grey;
+        color: $text-color;
         cursor: pointer;
         padding: 0px 20px;
       }
@@ -74,6 +88,13 @@ header {
       display: block;
     }
   }
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
 }
 
 .search-form {
@@ -96,7 +117,7 @@ header {
 
   button {
     width: 120px;
-    background-color: #7bcbc4;
+    background-color: $theme-color;
     border-radius: 30px;
     border: none;
     height: 46px;
@@ -105,7 +126,7 @@ header {
       font-size: 20px;
       font-weight: 700;
       margin: 0px;
-      color: white;
+      color: $text-color-hover;
     }
   }
 }
@@ -113,7 +134,7 @@ header {
   margin-top: 50px;
   margin-bottom: 0px;
   .your-search {
-    color: grey;
+    color: $text-color;
     text-align: center;
     font-size: 24px;
   }
@@ -154,14 +175,14 @@ header {
 
 .favorites {
   .favorites-heading {
-    color: grey;
+    color: $text-color;
     text-align: center;
     font-size: 24px;
   }
   .results {
     .favorite-movie-heading,
     .favorite-tv-heading {
-      color: grey;
+      color: $text-color;
       padding-left: 10vw;
       font-size: 20px;
       font-style: italic;
@@ -216,7 +237,7 @@ header {
 }
 
 .no-shows {
-  color: #7bcbc4;
+  color: $theme-color;
   height: 140px;
   padding-top: 62px;
   text-align: center;
@@ -340,6 +361,71 @@ header {
         @media screen and (max-width: 700px) {
           width: 80vw;
         }
+      }
+    }
+  }
+}
+
+.footer-section {
+  background-color: $theme-color;
+  padding: 8px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $text-color-hover;
+  flex-shrink: 0;
+
+  .tmdb {
+    padding: 0px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $text-color-hover;
+    @media screen and (max-width: 700px) {
+      padding: 0px 12px;
+      width: 150px;
+      text-align: center;
+    }
+    .tmdb-logo {
+      width: 80px;
+      align-self: center;
+      background-color: #0d253f;
+      padding: 4px;
+      border-radius: 4px;
+      @media screen and (max-width: 700px) {
+        width: 40px;
+      }
+
+      .tmdb-logo-img {
+        width: 100%;
+      }
+    }
+  }
+  .footer-socials {
+    padding: 0px 100px;
+    @media screen and (max-width: 700px) {
+      padding: 0px 12px;
+    }
+    li {
+      list-style-type: none;
+      padding: 5px;
+      display: inline-block;
+      a {
+        display: inline-block;
+        height: 44px;
+        width: 44px;
+        background-color: #ffffff;
+        color: black;
+        border-radius: 50%;
+        margin: 0 2px;
+        text-align: center;
+        line-height: 42px;
+        font-size: 28px;
+        transition: all 0.5s ease;
+      }
+      a:hover {
+        box-shadow: 0 0 10px #000;
       }
     }
   }

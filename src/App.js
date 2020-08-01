@@ -7,6 +7,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import Movie from "./components/Movie";
 import Tv from "./components/Tv";
 import Favorites from "./components/Favorites";
+import Footer from "./components/Footer";
 import history from "./history";
 
 const App = () => {
@@ -165,36 +166,40 @@ const App = () => {
         userDetails={userDetails}
         onLogOut={handleLogOut}
       />
-      <Switch>
-        <Route exact path="/" render={() => <Home />} />
-        <Route path="/search" component={Results} />
-        <Route
-          path="/movie/:id"
-          render={(routeProps) => (
-            <Movie
-              {...routeProps}
-              favoriteMovies={favoriteMovies}
-              updateFavorite={updateFavorite}
-            />
-          )}
-        />
-        <Route
-          path="/tv/:id"
-          render={() => (
-            <Tv favoriteTvs={favoriteTvs} updateFavorite={updateFavorite} />
-          )}
-        />
-        <Route
-          path="/favorites"
-          render={() => (
-            <Favorites
-              favoriteMovies={favoriteMovies}
-              favoriteTvs={favoriteTvs}
-              loading={loading}
-            />
-          )}
-        />
-      </Switch>
+      <div className="content">
+        <Switch>
+          <Route exact path="/" render={() => <Home />} />
+          <Route path="/search" component={Results} />
+          <Route
+            path="/movie/:id"
+            render={(routeProps) => (
+              <Movie
+                {...routeProps}
+                favoriteMovies={favoriteMovies}
+                updateFavorite={updateFavorite}
+              />
+            )}
+          />
+          <Route
+            path="/tv/:id"
+            render={() => (
+              <Tv favoriteTvs={favoriteTvs} updateFavorite={updateFavorite} />
+            )}
+          />
+          <Route
+            path="/favorites"
+            render={() => (
+              <Favorites
+                favoriteMovies={favoriteMovies}
+                favoriteTvs={favoriteTvs}
+                loading={loading}
+              />
+            )}
+          />
+        </Switch>
+      </div>
+
+      <Footer />
     </>
   );
 };
