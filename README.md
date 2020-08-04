@@ -28,5 +28,5 @@ TMDb API was used to create this project.
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Demo
-![adding to favourites](public/demo/Demo-2.gif)
+![adding to favourites](public/demo/Demo-2.gif) 
 ![removing to favourites](public/demo/Demo-1.gif)
