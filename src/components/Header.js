@@ -18,7 +18,8 @@ const Header = ({ onLogIn, userDetails, onLogOut }) => {
           <div className="dropdown">
             {userDetails.username ? (
               <button className="username dropbtn">
-                {userDetails.username}
+                <span>{userDetails.username}</span>
+                <span className="material-icons">arrow_drop_down</span>
               </button>
             ) : (
               <button onClick={onLogIn} className="log-in dropbtn">

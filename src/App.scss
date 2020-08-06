@@ -82,6 +82,8 @@ header {
       }
       .username {
         font-weight: 600;
+        display: flex;
+        align-items: center;
       }
     }
     .dropdown:hover .dropdown-content {
