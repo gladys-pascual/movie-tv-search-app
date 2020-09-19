@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./App.scss";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Header from "./components/Header";
 import Results from "./components/Results";
 import { Switch, Route, useLocation } from "react-router-dom";
-import Movie from "./components/Movie";
-import Tv from "./components/Tv";
+import Movie from "./pages/Movie";
+import Tv from "./pages/Tv";
 import Favorites from "./components/Favorites";
 import Footer from "./components/Footer";
 import history from "./history";
