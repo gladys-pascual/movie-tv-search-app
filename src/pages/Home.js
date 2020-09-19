@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Search from "./Search";
+import Search from "../components/Search";
 
 const Home = () => {
   useEffect(() => {

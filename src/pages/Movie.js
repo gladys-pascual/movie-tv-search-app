@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Loading from "./Loading";
-import Show from "./Show";
+import Loading from "../components/Loading";
+import Show from "../components/Show";
 
 class Movie extends Component {
   constructor(props) {

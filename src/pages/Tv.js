@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Loading from "./Loading";
-import Show from "./Show";
+import Loading from "../components/Loading";
+import Show from "../components/Show";
 
 const Tv = ({ favoriteTvs, updateFavorite, userDetails }) => {
   const [tv, setTv] = useState({});
