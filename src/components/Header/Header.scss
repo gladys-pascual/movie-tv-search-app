@@ -1,0 +1,75 @@
+@import "../../assets/variables.scss";
+
+header {
+  margin: 30px 50px 50px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: 780px) {
+    margin: 10px 10px 30px 10px;
+  }
+  .logo {
+    width: 150px;
+    img {
+      width: 100%;
+    }
+  }
+  nav ul {
+    display: flex;
+    padding: 20px;
+    margin: 4px;
+    font-size: 16px;
+    list-style-type: none;
+    @media screen and (max-width: 780px) {
+      padding: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+    }
+    .selected {
+      color: $text-color-hover;
+      background-color: $theme-color;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 200px;
+        li {
+          margin: 12px 20px;
+        }
+      }
+
+      .dropdown-content a:hover {
+        color: $text-color-hover;
+        background-color: $theme-color;
+        padding: 4px;
+        border-radius: 4px;
+      }
+
+      .log-in,
+      .dropbtn {
+        border: none;
+        background: none;
+        color: $text-color;
+        cursor: pointer;
+        padding: 0px 20px;
+      }
+      .username {
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  }
+}

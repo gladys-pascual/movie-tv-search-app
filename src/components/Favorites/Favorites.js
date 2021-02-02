@@ -1,8 +1,9 @@
-import ShowCard from "./ShowCard";
+import ShowCard from "../ShowCard/ShowCard";
 import { Link } from "react-router-dom";
-import NoFavorites from "./NoFavorites";
-import Loading from "./Loading";
+import NoFavorites from "../NoFavorites/NoFavorites";
+import Loading from "../Loading/Loading.js";
 import React from "react";
+import "./Favorites.scss";
 
 const Favorites = ({ favoriteMovies, favoriteTvs, loading }) => {
   const favoriteMovie = favoriteMovies.results.map((movie) => {

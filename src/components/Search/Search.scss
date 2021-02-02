@@ -1,0 +1,35 @@
+@import "../../assets/variables.scss";
+
+.search-form {
+  display: flex;
+  justify-content: center;
+
+  .form-wrapper {
+    border: 1px solid lightgrey;
+    border-radius: 30px;
+    padding-left: 20px;
+  }
+  .input {
+    width: 50vw;
+    font-size: 16px;
+    border: none;
+    @media screen and (max-width: 780px) {
+      font-size: 12px;
+    }
+  }
+
+  button {
+    width: 120px;
+    background-color: $theme-color;
+    border-radius: 30px;
+    border: none;
+    height: 46px;
+
+    p {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0px;
+      color: $text-color-hover;
+    }
+  }
+}

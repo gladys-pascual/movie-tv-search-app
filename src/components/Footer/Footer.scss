@@ -1,0 +1,66 @@
+@import "../../assets/variables.scss";
+
+.footer-section {
+  background-color: $theme-color;
+  padding: 8px 0px;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $text-color-hover;
+
+  .tmdb {
+    padding: 0px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $text-color-hover;
+    @media screen and (max-width: 780px) {
+      padding: 0px 12px;
+      width: 150px;
+      text-align: center;
+    }
+    .tmdb-logo {
+      width: 80px;
+      align-self: center;
+      background-color: #0d253f;
+      padding: 4px;
+      border-radius: 4px;
+      @media screen and (max-width: 780px) {
+        width: 40px;
+      }
+
+      .tmdb-logo-img {
+        width: 100%;
+      }
+    }
+  }
+  .footer-socials {
+    padding: 0px 100px;
+    @media screen and (max-width: 780px) {
+      padding: 0px 12px;
+    }
+    li {
+      list-style-type: none;
+      padding: 5px;
+      display: inline-block;
+      a {
+        display: inline-block;
+        height: 44px;
+        width: 44px;
+        background-color: #ffffff;
+        color: black;
+        border-radius: 50%;
+        margin: 0 2px;
+        text-align: center;
+        line-height: 42px;
+        font-size: 28px;
+        transition: all 0.5s ease;
+      }
+      a:hover {
+        box-shadow: 0 0 10px #000;
+      }
+    }
+  }
+}
