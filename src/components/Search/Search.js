@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import history from "../history";
+import history from "../../history";
+import "./Search.scss";
 
 class Search extends Component {
   constructor(props) {

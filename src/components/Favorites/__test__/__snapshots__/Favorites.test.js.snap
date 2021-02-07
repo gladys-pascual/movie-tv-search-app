@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Favorites component as expected 1`] = `
+<div>
+  <section
+    class="favorites"
+  >
+    <h2
+      class="favorites-heading"
+    >
+       Here are your top picks: 
+    </h2>
+    <div
+      class="favorite-movie results"
+    >
+      <h3
+        class="favorite-movie-heading"
+      >
+         Your favorite movies 
+      </h3>
+      <div
+        class="show-list"
+      >
+        <a
+          href="/movie/671"
+        >
+          <div
+            class="show-card"
+          >
+            <div
+              class="top-wrapper"
+            >
+              <div
+                class="img-wrapper"
+              >
+                <img
+                  alt="Harry Potter and the Philosopher's Stone"
+                  src="https://image.tmdb.org/t/p/w220_and_h330_face/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
+                />
+              </div>
+              <div
+                class="text-wrapper"
+              >
+                <h3>
+                  Harry Potter and the Philosopher's Stone
+                </h3>
+                <p
+                  class="date"
+                >
+                   
+                  Nov 16 2001
+                   
+                </p>
+              </div>
+            </div>
+            <div
+              class="rating-wrapper"
+            >
+              <div
+                class="icon"
+              >
+                <img
+                  alt="movie"
+                  src="https://img.icons8.com/ios-filled/20/000000/movie.png"
+                />
+              </div>
+              <div
+                class="react-rater"
+              >
+                <div>
+                  <div
+                    class="react-rater-star is-disabled is-active"
+                  >
+                    ★
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="react-rater-star is-disabled is-active"
+                  >
+                    ★
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="react-rater-star is-disabled is-active"
+                  >
+                    ★
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="react-rater-star is-disabled is-active-half"
+                  >
+                    ★
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="react-rater-star is-disabled"
+                  >
+                    ★
+                  </div>
+                </div>
+              </div>
+              <p
+                class="rating"
+              >
+                7.9
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      class="favorite-tv results"
+    >
+      <h3
+        class="favorite-tv-heading"
+      >
+         Your favorite TV shows 
+      </h3>
+      <div
+        class="show-list"
+      >
+        <a
+          href="/tv/79525"
+        >
+          <div
+            class="show-card"
+          >
+            <div
+              class="top-wrapper"
+            >
+              <div
+                class="img-wrapper"
+              >
+                <img
+                  alt="The Last Dance"
+                  src="https://image.tmdb.org/t/p/w220_and_h330_face/oVf4xGGbDtwVHiKn8uTuSriY7PH.jpg"
+                />
+              </div>
+              <div
+                class="text-wrapper"
+              >
+                <h3>
+                  The Last Dance
+                </h3>
+                <p
+                  class="date"
+                >
+                   
+                  Apr 19 2020
+                   
+                </p>
+              </div>
+            </div>
+            <div
+              class="rating-wrapper"
+            >
+              <div
+                class="icon"
+              >
+                <img
+                  alt="tv"
+                  src="https://img.icons8.com/android/20/000000/retro-tv.png"
+                />
+              </div>
+              <div
+                class="react-rater"
+              >
+                <div>
+                  <div
+                    class="react-rater-star is-disabled is-active"
+                  >
+                    ★
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="react-rater-star is-disabled is-active"
+                  >
+                    ★
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="react-rater-star is-disabled is-active"
+                  >
+                    ★
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="react-rater-star is-disabled is-active"
+                  >
+                    ★
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="react-rater-star is-disabled"
+                  >
+                    ★
+                  </div>
+                </div>
+              </div>
+              <p
+                class="rating"
+              >
+                8.2
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+`;

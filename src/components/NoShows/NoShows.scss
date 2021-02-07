@@ -1,0 +1,14 @@
+@import "../../assets/variables.scss";
+
+.no-shows {
+  color: $theme-color;
+  height: 140px;
+  padding-top: 62px;
+  text-align: center;
+  font-size: 1.25em;
+
+  .material-icons {
+    padding-right: 10px;
+    font-size: 6em;
+  }
+}

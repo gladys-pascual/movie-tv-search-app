@@ -1,0 +1,18 @@
+@import "../../assets/variables.scss";
+
+.favorites {
+  .favorites-heading {
+    color: $text-color;
+    text-align: center;
+    font-size: 24px;
+  }
+  .results {
+    .favorite-movie-heading,
+    .favorite-tv-heading {
+      color: $text-color;
+      padding-left: 10vw;
+      font-size: 20px;
+      font-style: italic;
+    }
+  }
+}

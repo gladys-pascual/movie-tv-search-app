@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import ShowCard from "./ShowCard";
-import Search from "./Search";
-import NoShows from "./NoShows";
-import Loading from "./Loading";
+import ShowCard from "../ShowCard/ShowCard";
+import Search from "../Search/Search";
+import NoShows from "../NoShows/NoShows";
+import Loading from "../Loading/Loading";
 import { Link } from "react-router-dom";
-import "../";
+import "./Results.scss";
 
 class Results extends Component {
   constructor(props) {

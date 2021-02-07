@@ -1,16 +1,17 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import "./Header.scss";
 
 const Header = ({ onLogIn, userDetails, onLogOut }) => {
   return (
     <header>
-      <Link exact to="/" className="logo">
+      <Link exact="true" to="/" className="logo">
         <img src={process.env.PUBLIC_URL + "logo.png"} alt="logo" />
       </Link>
       <nav>
         <ul>
           <li>
-            <NavLink exact to="/" activeClassName="selected">
+            <NavLink exact={true} to="/" activeClassName="selected">
               Home
             </NavLink>
           </li>
@@ -36,7 +37,7 @@ const Header = ({ onLogIn, userDetails, onLogOut }) => {
 
               <li>
                 {userDetails.username && (
-                  <Link exact to="/" onClick={onLogOut}>
+                  <Link exact="true" to="/" onClick={onLogOut}>
                     Logout
                   </Link>
                 )}

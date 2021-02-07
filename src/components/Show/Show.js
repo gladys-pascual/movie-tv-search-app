@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
 import Heart from "react-animated-heart";
+import "./Show.scss";
 
 const Show = ({
   date,

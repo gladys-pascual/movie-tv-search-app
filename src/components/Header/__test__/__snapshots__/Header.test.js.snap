@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Header component when no user is logged in as expected 1`] = `
+<div>
+  <header>
+    <a
+      class="logo"
+      exact="true"
+      href="/"
+    >
+      <img
+        alt="logo"
+        src="logo.png"
+      />
+    </a>
+    <nav>
+      <ul>
+        <li>
+          <a
+            aria-current="page"
+            class="selected"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <div
+          class="dropdown"
+        >
+          <button
+            class="log-in dropbtn"
+          >
+            Login
+          </button>
+          <div
+            class="dropdown-content"
+          >
+            <li />
+            <li />
+          </div>
+        </div>
+      </ul>
+    </nav>
+  </header>
+</div>
+`;
+
+exports[`render Header component when there is a user logged in as expected 1`] = `
+<div>
+  <header>
+    <a
+      class="logo"
+      exact="true"
+      href="/"
+    >
+      <img
+        alt="logo"
+        src="logo.png"
+      />
+    </a>
+    <nav>
+      <ul>
+        <li>
+          <a
+            aria-current="page"
+            class="selected"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <div
+          class="dropdown"
+        >
+          <button
+            class="username dropbtn"
+          >
+            <span>
+              gladyskate
+            </span>
+            <span
+              class="material-icons"
+            >
+              arrow_drop_down
+            </span>
+          </button>
+          <div
+            class="dropdown-content"
+          >
+            <li>
+              <a
+                href="/favorites"
+              >
+                My Favourites
+              </a>
+            </li>
+            <li>
+              <a
+                exact="true"
+                href="/"
+              >
+                Logout
+              </a>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </nav>
+  </header>
+</div>
+`;

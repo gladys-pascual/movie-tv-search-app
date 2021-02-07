@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders NoShows component as expected 1`] = `
+<div>
+  <section
+    class="no-shows"
+  >
+    <span
+      class="material-icons"
+    >
+      sentiment_very_dissatisfied
+    </span>
+    <h3>
+      Sorry, no movie or TV show matched your search. Please type your search again.
+    </h3>
+  </section>
+</div>
+`;

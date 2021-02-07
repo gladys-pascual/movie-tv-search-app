@@ -1,6 +1,7 @@
 import React from "react";
 import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
+import "./ShowCard.scss";
 
 const ShowCard = ({
   media_type,
