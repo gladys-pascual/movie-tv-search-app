@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Loading component as expected 1`] = `
+<div>
+  <div
+    class="loading"
+  >
+    <div
+      class="css-8pkz"
+    >
+      <div
+        class="css-rxlor6"
+      />
+      <div
+        class="css-13u5b26"
+      />
+      <div
+        class="css-144dyr7"
+      />
+      <div
+        class="css-pu3zi4"
+      />
+      <div
+        class="css-tzx4d9"
+      />
+      <div
+        class="css-1mjpbtg"
+      />
+    </div>
+  </div>
+</div>
+`;

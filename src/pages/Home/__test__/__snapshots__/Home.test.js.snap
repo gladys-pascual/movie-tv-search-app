@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Home component as expected 1`] = `
+<div>
+  <div
+    class="home"
+  >
+    <form
+      class="search-form"
+    >
+      <div
+        class="form-wrapper"
+      >
+        <input
+          class="input"
+          name="query"
+          placeholder="Search for a movie or tv show..."
+          type="text"
+        />
+        <button
+          class="search-button"
+          id="submit"
+          type="submit"
+        >
+          <p>
+            Search
+          </p>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

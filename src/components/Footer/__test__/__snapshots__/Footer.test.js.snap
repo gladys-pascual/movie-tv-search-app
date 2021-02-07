@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Footer as expected 1`] = `
+<div>
+  <footer
+    class="footer-section"
+  >
+    <a
+      class="tmdb"
+      href="https://developers.themoviedb.org/3/getting-started/introduction"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <div
+        class="tmdb-logo"
+        href="https://developers.themoviedb.org/3/getting-started/introduction"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="tmbd logo"
+          class="tmdb-logo-img"
+          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
+        />
+      </div>
+      <p>
+        This website uses the TMDb API.
+      </p>
+    </a>
+    <ul
+      class="footer-socials"
+    >
+      <li>
+        <a
+          href="https://github.com/gladys-pascual/movie-tv-search-app"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-github"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://dev.to/gladyspascual"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-dev"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/gladyspascual/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-linkedin"
+          />
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+`;
